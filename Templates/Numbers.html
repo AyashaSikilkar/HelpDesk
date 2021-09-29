@@ -1,0 +1,207 @@
+{% extends 'Base.html' %}
+{% block content %}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+      <style>
+       .card:hover{
+          background-color: dodgerblue;
+          color: white;
+          transition: all 1.5s ease;
+          transform:scale(1.10);
+        }
+        .btn:hover{
+          background-color: white;
+          color: dodgerblue;
+        }
+        a:hover{
+          color: white;
+        }
+        
+      
+      </style>
+
+<br><br>
+<div class="row 2-100 p-(-100) w-0">
+  {% for num in no %}
+  <div class="col-md-4 mb-5">
+    <div class="card mx-auto" style="width: 20rem;">
+      <div class="card-header">
+        Details of {{num.title}}
+        </div>
+        <div class="card-body">                    
+            <p class="card-text">&nbsp;&nbsp;  {{num.desc}}</p>
+          
+        <p class="card-text">
+          <i class="fa fa-user"></i>&emsp;{{num.fname}}&nbsp;
+          <hr>
+          <i class="fa fa-phone"></i>&emsp;{{num.mobileno}}
+          <hr>
+          <i class="fa fa-envelope"></i>&emsp;<a href="mailto:{{num.mail}}">{{num.mail}}</a>
+          <hr>
+          <i class="fa fa-info"></i>&emsp;{{num.desc}}
+        </p>
+
+          <button class="btn btn-warning copy-btn" data-mobileno={{num.mobileno}}>
+                Copy Number
+        </button> 
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+   {% for num in numbers %}
+  <div class="col-md-4 mb-5">
+    <div class="card mx-auto" style="width: 20rem;">
+      <div class="card-header">
+        Details of {{num.title}}
+        </div>
+        <div class="card-body">                    
+            <p class="card-text">&nbsp;&nbsp;  {{num.desc}}</p>
+          
+        <p class="card-text">
+          <i class="fa fa-user"></i>&emsp;{{num.fname}}&nbsp;
+          <hr>
+          <i class="fa fa-phone"></i>&emsp;{{num.mobileno}}
+          <hr>
+          <i class="fa fa-envelope"></i>&emsp;<a href="mailto:{{num.mail}}">{{num.mail}}</a>
+          <hr>
+          <i class="fa fa-info"></i>&emsp;{{num.desc}}
+        </p>
+
+          <button class="btn btn-warning copy-btn" data-mobileno={{num.mobileno}}>
+                Copy Number
+        </button> 
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% for num in manchar %}
+   
+        <div class="col-md-4 mb-5">
+      <div class="card mx-auto" style="width: 20rem;">
+        <div class="card-header">
+          Details of {{num.title}}
+          </div>
+          <div class="card-body">                    
+             
+            
+          <p class="card-text">
+            <i class="fa fa-user"></i>&emsp;{{num.fname}}
+            <hr>
+            <i class="fa fa-phone"></i>&emsp;{{num.mobileno}}
+            <hr>
+            <i class="fa fa-envelope"></i>&emsp;<a href="mailto:{{num.mail}}">{{num.mail}}</a>
+            <hr>
+            <i class="fa fa-info"></i>&emsp;{{num.desc}}
+          </p>
+
+          <button class="btn btn-warning copy-btn" data-mobileno={{num.mobileno}}>
+                Copy Number
+        </button> 
+        </div>
+      </div>
+    </div>
+   
+  {% endfor %}
+  <div class="row 2-100 p-(-100) w-0">
+  {% for num in emergency %}
+  <div class="col-md-3 mb-4">
+    <div class="card mx-auto" style="width: 18rem;">
+      <div class="card-header">
+        Details of {{num.title}}
+        </div>
+      <div class="card-body">
+        <h5 class="card-title">{{num.title}}</h5>
+          
+        <p class="card-text"><i class="fa fa-phone"></i>&emsp;{{num.mobileno}}</p>
+        <hr>
+            Applicable all over India<hr>
+          <button class="btn btn-warning copy-btn" data-mobileno={{num.mobileno}}>
+                Copy Number
+        </button> 
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% for num in science %}
+  <div class="col-md-4 mb-5">
+    <div class="card mx-auto" style="width: 20rem;">
+      <div class="card-header">
+        Details of {{num.title}}
+        </div>
+        <div class="card-body">                    
+            <p class="card-text">&nbsp;&nbsp;  {{num.desc}}</p>
+          
+        <p class="card-text">
+          <i class="fa fa-user"></i>&emsp;{{num.fname}}&nbsp;
+          <hr>
+          <i class="fa fa-phone"></i>&emsp;{{num.mobileno}}
+          <hr>
+          <i class="fa fa-envelope"></i>&emsp;<a href="mailto:{{num.mail}}">{{num.mail}}</a>
+          <hr>
+          <i class="fa fa-info"></i>&emsp;{{num.desc}}
+        </p>
+
+         <button class="btn btn-warning copy-btn" data-mobileno={{num.mobileno}}>
+                Copy Number
+        </button> 
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% for num in mechanical %}
+  <div class="col-md-4 mb-5">
+    <div class="card mx-auto" style="width: 20rem;">
+      <div class="card-header">
+        Details of {{num.title}}
+        </div>
+        <div class="card-body">                    
+            <p class="card-text">&nbsp;&nbsp;  {{num.desc}}</p>
+          
+        <p class="card-text">
+          <i class="fa fa-user"></i>&emsp;{{num.fname}}&nbsp;
+          <hr>
+          <i class="fa fa-phone"></i>&emsp;{{num.mobileno}}
+          <hr>
+          <i class="fa fa-envelope"></i>&emsp;<a href="mailto:{{num.mail}}">{{num.mail}}</a>
+          <hr>
+          <i class="fa fa-info"></i>&emsp;{{num.desc}}
+        </p>
+
+         <button class="btn btn-warning copy-btn" data-mobileno={{num.mobileno}}>
+                Copy Number
+        </button> 
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% for num in it %}
+  <div class="col-md-4 mb-5">
+    <div class="card mx-auto" style="width: 20rem;">
+      <div class="card-header">
+        Details of {{num.title}}
+        </div>
+        <div class="card-body">                    
+            <p class="card-text">&nbsp;&nbsp;  {{num.desc}}</p>
+          
+        <p class="card-text">
+          <i class="fa fa-user"></i>&emsp;{{num.fname}}&nbsp;
+          <hr>
+          <i class="fa fa-phone"></i>&emsp;{{num.mobileno}}
+          <hr>
+          <i class="fa fa-envelope"></i>&emsp;<a href="mailto:{{num.mail}}">{{num.mail}}</a>
+          <hr>
+          <i class="fa fa-info"></i>&emsp;{{num.desc}}
+        </p>
+
+         <button class="btn btn-warning copy-btn" data-mobileno={{num.mobileno}}>
+                Copy Number
+        </button> 
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<br><br>
+{% endblock content %}
+
+

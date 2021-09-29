@@ -1,0 +1,71 @@
+{% extends 'Base.html' %}
+
+
+{% block content %}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+ .card:hover{
+    background-color: dodgerblue;
+    color: white;
+    transition: all 1.5s ease;
+    transform:scale(1.10);
+  }
+
+  .btn:hover{
+    background-color: white;
+    color: dodgerblue;
+  }
+
+ 
+</style>
+
+<!--div class="container col-lg-8 p-4">  
+    <div class="card" style="width: 20rem;">      
+      <div class="card-header">
+      Details of {{num.title}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{num.title}}</h5>
+          
+        <p class="card-text"><i class="fa fa-phone"></i>&emsp;{{num.mobileno}}</p>
+        <hr>
+            Applicable all over India<hr>
+        <a href="#" class="btn btn-primary">Copy Number</a>
+      </div>
+    </div>
+</div-->
+
+<br><br>
+
+<div class="container">
+<div class="row 2-100 p-(-100) w-0">
+  {% for num in no %}
+  <div class="col-md-3 mb-4">
+    <div class="card mx-auto" style="width: 18rem;">
+      <div class="card-header">
+        Details of {{num.title}}
+        </div>
+      <div class="card-body">
+        <h5 class="card-title">{{num.title}}</h5>
+          
+        <p class="card-text"><i class="fa fa-phone"></i>&emsp;{{num.mobileno}}</p>
+        <hr>
+            Applicable all over India<hr>
+        <button class="btn btn-warning copy-btn" data-mobileno={{num.mobileno}}>
+                Copy Number
+        </button> 
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+<br><br>
+{% endblock content %}
+
+
+

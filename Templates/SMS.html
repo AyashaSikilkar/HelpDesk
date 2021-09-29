@@ -1,0 +1,23 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        {% load static %}
+   
+  <div class="container border p-3 mt-2 center col-lg-7" >
+            <h3><center>Contact Us</center></h3>
+      <form action="sms" method="post" >
+      {% csrf_token %}
+         <div class="form-group">            
+            <input class="form-control me-2" type="search" id="search" name="search"placeholder="Search" aria-label="Search"> <br>
+            <button class="btn btn-outline-primary" type="submit">Search</button>    <br><br>
+            <input type="number" class="form-control" id="number" name="number" placeholder="Enter Your Number"><br>            
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+   </div>
+
+
+{% endblock content %}
+

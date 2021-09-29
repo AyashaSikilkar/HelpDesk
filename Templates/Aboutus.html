@@ -1,0 +1,450 @@
+    {% extends 'Base.html' %}
+    {% load static %}
+    
+    {% block content %}
+    <!-- Bootstrap CSS -->
+    <link src="{% static 'CSS/AboutPage.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Flamenco&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+      body{
+        
+        
+        overflow-x: hidden;
+      }
+
+      .team-area{
+        
+      }
+
+      .section-heading{
+        text-align: center;
+        color: black;        
+        margin-bottom: 50px;
+        text-transform: uppercase;
+         letter-spacing: 5px;
+      }
+      .card{
+        border: none;
+        background: linear-gradient(147deg, #0acffe 0%, #495aff 74%);        
+      }
+
+      .img-area{
+        width: 150px;
+        height: 150px;        
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 50%;        
+      }
+      .team-single:hover .side-two{
+        transform: rotateY(0deg);
+        border-radius: 5px;
+      }
+
+      .team-single:hover .side-one{
+        transform: rotateY(180deg);        
+      }
+
+      .content-area{
+        transform: perspective(1000px);
+        transition: 1s;
+        transform-style: preserve-3d;
+        position: relative;
+      }
+
+      .side-one{
+        position: relative;
+        transform: rotateY(0deg);
+        z-index: 2;
+        margin-bottom: 30px;
+        color: white;
+      }
+
+      .side-two{
+        position: absolute;
+        top: 0;
+        left: 0;background: linear-gradient(147deg, #0acffe 0%, #495aff 74%);       
+        transform: rotateY(-180deg);        
+        color: white;
+      }
+
+      .side-one,
+      .side-two{
+        backface-visibility: hidden;
+        transition: 1s;
+        transform-style: preserve-3d;
+      }
+
+      .side-one .card,
+      .side-two .card{
+        min-height: 312px;
+      }
+
+      .side-two .card a{
+        font-size: 35px;
+        color: brown;
+        transition: 0.5s;
+      }
+
+      .side-two ul li a{
+        position: relative;        
+        padding-left: 12px;
+        padding-right: 12px;   
+        padding-top: 12px;
+        padding-bottom: 12px;
+        border-radius: 90%;
+        background: white;
+        text-align: center;
+        transition: .6s;
+        box-shadow:  0 5px 4px rgba(0,0,0,0.5);
+      }
+
+      .side-two ul li .fa:hover{
+        color: white;
+      }
+
+      .side-two ul li:nth-child(1) a:hover{
+        background-color: #3b5998;
+      }
+      .side-two ul li:nth-child(2) a:hover{
+        background-color: #e4405f;
+      }
+      .side-two ul li:nth-child(3) a:hover{
+        background-color: #0077B5;
+      }
+      h4{
+        color: brown;
+        letter-spacing: 5px;
+        
+      }
+
+      #card1{
+        transition: all 2s ease;
+      }
+
+      #card1:hover{
+          transform:scale(1.1);
+      }
+      
+
+      h2{
+        font-size: 40px;
+        font-weight: 700;                
+        position: relative;
+        animation: text 5s 1;
+      }
+
+      @keyframes text {
+        0%{
+          color: black;          
+          font-size: 30%;
+          opacity: 1;
+        }
+        30%{          
+          font-size: 50%;
+          opacity: 1;
+
+        }
+        65%{        
+          font-size: 70%;
+          opacity: 0;
+        }
+        100%{          
+          font-size: 100%;
+          opacity: 1;          
+        }
+      }
+
+      .transbox{               
+        
+        opacity: 0.6;        
+        background: linear-gradient(147deg, #0acffe 0%, #495aff 74%);
+        color: white;
+        font-style: bold;
+        font-weight: bolder;               
+        overflow: hidden;
+        transition: all 2s ease;
+      }
+
+      .transbox:hover{
+          transform:scale(1.1);
+      }
+
+      .card{
+        font-size: 18px;
+        letter-spacing: 1px;        
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 10px;                        
+      }
+
+    </style>
+  <body>
+
+      <div class="container p-4 pratik">                    
+              <div class="row">                
+                <div class="col-sm-4 col-lg-12">                  
+                        <br>   
+                        <div class="transbox ">
+                          <h2 class="text-center text-light">Our mission is to serve information and <br>guidance to secure consumers and users life.</h2>                      
+                        </div>
+                </div>
+              </div>
+      </div>
+      <br>
+      <!--div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-9">
+          <div class="card shadow-lg col-lg-8 col-sm-5 p-2 mb-2 bg-white rounded" style=" background: white;">
+            <div class="card-body">          
+              <p class="card-text"> We are the common people like you who want to help people. The way we chosed is by providing phone numbers. This is a phone connected
+            era. Everything happens through phones. We don't know when we would come across some situations and would need to dial a particular contact.
+            To avoid such panicky conditions we introduce our work to you publicly.<br><br>
+            Our work includes contact details of GPA Staff, Emergency numbers, phone numbers of Manchar City Hotels, General Stores, and many more.<br><br>
+            Our upcoming feature is:
+              <li>Vaccination Notification</li>
+            
+              </p>          
+            </div>
+          </div>
+        </div>
+      </div-->
+
+      <div class="container">
+        <div class="row">          
+          <div class="col-md-8 mb-4">
+            <div class="card shadow-lg col-lg-12 col-sm-5 p-2 mb-2 bg-white rounded" style=" background: white;">                              <br>
+                <p class="card-text">We are the common people like you who want to help people. The way we chosed is by providing phone numbers. This is a phone connected
+                  era. Everything happens through phones. We don't know when we would come across some situations and would need to dial a particular contact.
+                  To avoid such panicky conditions we introduce our work to you publicly.<br><br>
+                  Our work includes contact details of GPA Staff, Emergency numbers, phone numbers of Manchar City Hotels, General Stores, and many more.<br><br>
+                  Our upcoming feature is:
+                    <li>Vaccination Notification</li>
+                  </p>              
+              </div>              
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <div class="card shadow-lg col-lg-12 col-sm-5 p-2 mb-2 bg-white rounded" style=" background: white;" id="card1">                       
+                <center>
+                  <div class="card-text">
+                    <h3><i>Our Mentor</i></h3> <br>
+                    <img src="{% static 'IMG/HOD.jpeg' %}" height="175px" width="190px" alt="">                        
+                    <h4 style="color: black; letter-spacing: normal;">Smt. Jyoti Hange</h4>          
+                    <p style="color: black; letter-spacing: normal;">HOD of Computer Department at <br> G.P. Awasari</p>
+                  </div>
+                  </center>
+                </div>              
+              </div>
+
+            
+          </div>    
+        </div>
+
+      <section class="team-area">
+        <div class="container"> <br>
+          <h3 class="section-heading">Team Members</h3>
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-3">
+              <div class="team-single">
+                <div class="content-area">
+                  <div class="side-one">
+                    <div class="card">
+                      <div class="card-body text-center"><br>
+                        <div class="img-area">
+                          <img src="{% static 'IMG/Savani-Profile (7).jpg' %}" alt="">
+                        </div>
+                        <br><br>
+                          <h3>Savani Kalekar</h3>                                         
+                      </div>
+                    </div>
+                  </div>                
+              <div class="side-two">
+                <div class="card">
+                  <div class="card-body text-center mt-4">
+                    <h3>Savani Kalekar</h3>
+                    <p>Diploma in Computer Engineering.</p><br><br>
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                          <a href="https://www.facebook.com/savani.kalekar/" class="social-icon" target="_blank">
+                              <i class="fa fa-facebook"></i>
+                          </a>
+                      </li>
+
+                      <li class="list-inline-item">
+                        <a href="https://www.instagram.com/savani2002/" class="social-icon" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item">
+                      <a href="https://www.linkedin.com/in/savani-kalekar-a66a841b0/" class="social-icon" target="_blank">
+                          <i class="fa fa-linkedin"></i>
+                      </a>
+                  </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+              </div>
+              </div>              
+            </div>
+
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+              <div class="team-single">
+                <div class="content-area">
+                  <div class="side-one">
+                    <div class="card">
+                      <div class="card-body text-center"><br>
+                        <div class="img-area">
+                          <img src="{% static 'IMG/Pratik-Profile (3).jpg' %}" alt="">
+                        </div>
+                        <br><br>
+                          <h3>Pratik Pradhan</h3>                                                             
+                      </div>
+                    </div>
+                  </div>                
+              <div class="side-two">
+                <div class="card">
+                  <div class="card-body text-center mt-4">
+                    <h3>Pratik Pradhan</h3>
+                    <h4 style="color: white; letter-spacing: normal;">Team Lead</h4>
+                    <p>Diploma in Computer Engineering.</p><br><br>
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                          <a href="https://www.instagram.com/pratik_pradhan2606/" class="social-icon" target="_blank">
+                              <i class="fa fa-facebook"></i>
+                          </a>
+                      </li>
+
+                      <li class="list-inline-item">
+                        <a href="https://www.instagram.com/pratikpradhan2606/" class="social-icon" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item">
+                      <a href="https://www.linkedin.com/in/pratik-pradhan-819b751a3/" class="social-icon" target="_blank">
+                          <i class="fa fa-linkedin"></i>
+                      </a>
+                  </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+              </div>
+              </div>              
+            </div>
+
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+              <div class="team-single">
+                <div class="content-area">
+                  <div class="side-one">
+                    <div class="card">
+                      <div class="card-body text-center"><br>
+                        <div class="img-area">
+                          <img src="{% static 'IMG/Sagar-Profile (3).jpg' %}" alt="">
+                        </div>
+                        <br><br>
+                          <h3>Sagar Kawale</h3>                                          
+                      </div>
+                    </div>
+                  </div>                
+              <div class="side-two">
+                <div class="card">
+                  <div class="card-body text-center mt-4">
+                    <h3>Sagar Kawale</h3>
+                    <p>Diploma in Computer Engineering.</p><br><br>
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                          <a href="https://www.facebook.com/sagar.kawale.564" class="social-icon" target="_blank">
+                              <i class="fa fa-facebook"></i>
+                          </a>
+                      </li>
+
+                      <li class="list-inline-item">
+                        <a href="https://www.instagram.com/kawalesagar4/" class="social-icon" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item">
+                      <a href="https://www.linkedin.com/mwlite/in/sagar-kawale-386b91210" class="social-icon" target="_blank">
+                          <i class="fa fa-linkedin"></i>
+                      </a>
+                  </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+              </div>
+              </div>              
+            </div>
+
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+              <div class="team-single">
+                <div class="content-area">
+                  <div class="side-one">
+                    <div class="card">
+                      <div class="card-body text-center"><br>
+                        <div class="img-area">
+                          <img src="{% static 'IMG/Ayasha-Profile.jpg' %}" alt="">
+                        </div>
+                        <br><br>
+                          <h3>Ayasha Sikilkar</h3>
+                      </div>
+                    </div>
+                  </div>                
+              <div class="side-two">
+                <div class="card">
+                  <div class="card-body text-center mt-4">
+                    <h3>Ayasha Sikilkar</h3>
+                    <p>Diploma in Computer Engineering.</p><br><br>
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                          <a href="https://www.facebook.com/ayasha.sikilkar" class="social-icon" target="_blank">
+                              <i class="fa fa-facebook"></i>
+                          </a>
+                      </li>
+
+                      <li class="list-inline-item">
+                        <a href="https://www.instagram.com/secret_giggle_6001/" class="social-icon" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item">
+                      <a href="https://www.linkedin.com/in/ayasha-sikilkar-0093911bb/" class="social-icon" target="_blank">
+                          <i class="fa fa-linkedin"></i>
+                      </a>
+                  </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+              </div>
+              </div>              
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+    
+
+  </body>      
+  {% endblock content %}
+
+        
+
+        

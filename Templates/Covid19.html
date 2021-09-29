@@ -1,0 +1,119 @@
+{% extends 'Base.html' %}
+{% block content %}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+      <style>
+      
+       .card:hover{
+          background-color: dodgerblue;
+          color: white;
+          transition: all 1.5s ease;
+          transform:scale(1.10);
+        }
+        /*.fa{
+          font-size: 25px;        
+        }*/
+        .btn:hover{
+          background-color: white;
+          color: dodgerblue;
+        }
+        a:hover{
+          color: white;
+        }
+        .img{
+          width:400px;
+        }
+      
+      </style>
+
+<br><br>
+  <div class="container " style="background-color:white;">
+    <div class="row col-lg-12  ">
+      <div class="col-lg-4">
+        <h4 class="mt-4"><i>Search COVID-CASES Data District Wise</i></h4><br>
+                
+            <form class="d-flex" action="covid" method="post">
+              {% csrf_token %}
+                <input class="form-control me-2" type="search" id="search" name="search"placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit">Search</button>
+          </form>
+          <br><br>
+          <hr>
+        </div>
+         
+          <div class="col-lg-4">
+          {% for key, value in globalsummary.districtData.items %}
+            {% if key == districts %}
+              
+              <div class="p-5 " style="width: 24rem;">
+                  <ul class="list-group list-group-flush">
+                     <li class="list-group-item">
+                      <i><h4>Details of {{key}}</h4></i>
+                     </li>
+                    <li class="list-group-item bg-warning">
+                        <i class="fa fa-circle"></i>&nbsp;&nbsp; Confirmed : {{value.confirmed}}
+                    </li>
+                    <li class="list-group-item bg-danger">
+                        <i class="fa fa-user"></i> &emsp;Active : {{value.active}}
+                    </li>
+                  <li class="list-group-item bg-info">
+                        <i class="fa fa-flag"></i>&emsp;Recovered : {{value.recovered}}
+                    </li>
+                  </ul>
+               </div>
+               
+
+                 <hr>
+             {% endif %}
+           
+          {% endfor %}
+          
+          </div>
+            <div class="col-lg-4">
+            
+          {% for num in num %}
+            {% if districts == num.district_name %}
+                      <img class="img"src="{{num.image.url}}" alt="No Data">
+                      <center>
+              <h5><i>Maharashtra Data</i></h5>
+          </center>
+          <hr>
+           {% endif %}
+           
+          {% endfor %}
+          </div>
+          
+    </div>
+    <br><br>
+    <div class="row">
+        <center><h3><i>COVID HELPDESK</i></h3></center>
+
+        <br><hr><br>
+
+         
+            {% for num in covid  %}
+            <div class="col-lg-4 mb-4">
+              <div class="card mx-auto" style="width: 18rem;">
+                <div class="card-header">
+                  Details of {{num.name}}
+                  </div>
+                <div class="card-body">
+                  
+                  <p class="card-text"><i class="fa fa-phone"></i>&emsp;{{num.mobileno}}</p>
+                  <hr>
+                   <button class="btn btn-warning copy-btn" data-mobileno={{num.mobileno}}>
+                Copy Number
+        </button> 
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+         
+
+<br><br>
+    
+    </div>
+</div>   
+{% endblock content %}
+
+
